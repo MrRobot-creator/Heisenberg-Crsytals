@@ -18,22 +18,17 @@ $(document).ready(function() {
         const productId = $(this).data('id');
         const productName = $(this).siblings('h3').text();
         
-        // Aqui você pode adicionar a lógica para adicionar ao carrinho
-        // Por enquanto, apenas um alerta
         alert(`produto "${productName}" adicionado ao carrinho!`);
         
-        // Efeito visual
         $(this).text('Adicionado!').css('background-color', '#27ae60');
         
-        // Reset após 2 segundos
         setTimeout(() => {
             $(this).text('Adicionar ao Carrinho').css('background-color', '#3498db');
         }, 2000);
     });
     
-    // Ajustar altura dos cards de produto para ficarem iguais
     function adjustProductCardsHeight() {
-        if ($(window).width() > 640) { // Apenas para desktop e tablet
+        if ($(window).width() > 640) { 
             let maxHeight = 0;
             
             $('.product-card').each(function() {
@@ -50,7 +45,6 @@ $(document).ready(function() {
         }
     }
     
-    // Executar na carga e no redimensionamento da tela
     adjustProductCardsHeight();
     $(window).resize(adjustProductCardsHeight);
 });
